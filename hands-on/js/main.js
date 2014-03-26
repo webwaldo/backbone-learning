@@ -34,17 +34,22 @@
 	App.Views.Task = Backbone.View.extend({
 		tagName: 'li',
 
+		template: template('taskTemplate'),
+
+		initialize: function() {
+			this.model.on('change', this.render(), this);
+		},
+
 		events: {
 			'click .edit': 'editTask'
 		},
 
 		editTask: function(){
-			var newTask = prompt('Change text to', this.model.get('title'));
-			this.model.set('title', newTaskTitle);
+			var newTaskTitle = prompt('Change text to', this.model.get('title'));
+
+			this.model.set({title: newTaskTitle}, {validate: true});
 		},
-
-		template: template('taskTemplate'),
-
+		
 		render: function(){
 			var template = this.template(this.model.toJSON());
 			this.$el.html( template );
