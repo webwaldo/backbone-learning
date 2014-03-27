@@ -37,7 +37,7 @@
 		template: template('taskTemplate'),
 
 		initialize: function() {
-			this.model.on('change', this.render(), this);
+			this.model.on('change', this.render, this);
 		},
 
 		events: {
@@ -46,8 +46,9 @@
 
 		editTask: function(){
 			var newTaskTitle = prompt('Change text to', this.model.get('title'));
-
-			this.model.set({title: newTaskTitle}, {validate: true});
+			console.log('testing',this.model);
+			//this.model.set({title: newTaskTitle}, {validate: true});
+			this.model.set("title", newTaskTitle);
 		},
 		
 		render: function(){
