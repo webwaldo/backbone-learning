@@ -1,8 +1,9 @@
 https://tutsplus.com/course/connected-to-the-backbone/#the_essentials
 https://tutsplus.com/lesson/dom-events/ [ Should probably redo a couple of times ]
 
-~ Current: 
-https://tutsplus.com/lesson/custom-events/
+~ Current Time:
+https://tutsplus.com/lesson/creating-new-tasks/
+Finished
 
 
 Do this once tut finished
