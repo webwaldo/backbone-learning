@@ -11,15 +11,20 @@ window.App = {
 App.Router = Backbone.Router.extend( {
 	routes:  {
 		'': 'index', 
-		'show' : 'show'
+		'show/:id' : 'show',
+		'download/*filename' : 'download'
 	},
 
 	index: function() {
 		console.log('in the index');
 	},
 
-	show: function() {
-		console.log('show route');
+	show: function(id) {
+		console.log('show route of id ' + id);
+	},
+
+	download: function(filename) {
+		console.log('download ' + filename);
 	}
 	
 });
