@@ -8,13 +8,46 @@ window.App = {
 	Router:  {}
 };
 
+
+var vent = _.extend( {}, Backbone.Events);
+
+console.log(vent);
+
+App.Views.Appointments = Backbone.View.extend( {
+	initialize: function() {
+		vent.on('appointment:show', this.show, this);	
+	},
+
+	show: function(id) {
+		console.log(' Showing the appointment with the id of ' + id);
+
+		// sudo code
+		/*
+		var appointment = this.collection.get(id);
+		var appointmentView = new APp.Views.Appointment( {
+			 model: appointment
+		}
+		);
+
+		$(document.body).append(appointmentView.render().el());
+		*/
+		// end sudo
+
+		
+	}
+	
+	
+});
+
 App.Router = Backbone.Router.extend( {
 	routes:  {
 		'': 'index', 
-		'show/:id' : 'show',
+	/*	'show/:id' : 'show',
 		'download/*filename' : 'download',
 		'search/:query' : 'search',
-		'*other' : 'default'
+		'*other' : 'default',
+		*/		
+		'appointment/:id' : 'showAppointment'
 	},
 
 	index: function() {
@@ -22,6 +55,7 @@ App.Router = Backbone.Router.extend( {
 	},
 
 	show: function(id) {
+		this.collection;
 		console.log('show route of id ' + id);
 	},
 
@@ -35,10 +69,24 @@ App.Router = Backbone.Router.extend( {
 
 	default: function(other) {
 		console.log('default route you accessed: ' + other);
+	},
+
+	showAppointment: function(appointmentId) {
+		console.log('apt id ' + appointmentId);
+		vent.trigger('appointment:show', appointmentId);
 	}
 	
-	
 });
+
+// sudo
+/*
+new App.Views.Appointments( {	
+	collection:  {
+		something : 'something'
+	}
+	
+} );
+*/
 
 new App.Router;
 Backbone.history.start();
