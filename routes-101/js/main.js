@@ -12,7 +12,9 @@ App.Router = Backbone.Router.extend( {
 	routes:  {
 		'': 'index', 
 		'show/:id' : 'show',
-		'download/*filename' : 'download'
+		'download/*filename' : 'download',
+		'search/:query' : 'search',
+		'*other' : 'default'
 	},
 
 	index: function() {
@@ -25,7 +27,16 @@ App.Router = Backbone.Router.extend( {
 
 	download: function(filename) {
 		console.log('download ' + filename);
+	},
+
+	search: function(query) {
+		console.log('search ' + query);
+	},
+
+	default: function(other) {
+		console.log('default route you accessed: ' + other);
 	}
+	
 	
 });
 
