@@ -1,1 +1,4 @@
 https://tutsplus.com/lesson/backbone-and-the-server-laravel-4/
+2:20 - downloaded
+Can't visually see 
+http://www.vmichnowicz.com/blog/entry/get_mysql_workbench_to_connect_to_mysql_running_with_vagrant
